@@ -12,11 +12,11 @@ import { DocumentUploader } from '../components/DocumentUploader';
 
 const TIPOS_DOCUMENTOS = [
   { id: 1, nombre: 'Hoja de vida' },
-  { id: 2, nombre: 'Seguro médico' },
+  { id: 2, nombre: 'Caja de compensación'' },
   { id: 3, nombre: 'Contrato laboral' },
   { id: 4, nombre: 'Certificado EPS' },
   { id: 5, nombre: 'Aportes pensión' },
-  { id: 6, nombre: 'Certificado IRL' },
+  { id: 6, nombre: 'Certificado ARL' },
   { id: 7, nombre: 'certificado bancario' },
   { id: 8, nombre: 'Fotocopia cédula' },
   { id: 9, nombre: 'Exámenes médicos' },
