@@ -29,7 +29,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             <Briefcase className="w-5 h-5 text-white" />
           </div>
           <div>
-            <p className="font-bold text-slate-800 text-sm leading-none">GestiónCo</p>
+            <p className="font-bold text-slate-800 text-sm leading-none">ImpulsarTH</p>
             <p className="text-xs text-slate-400 mt-0.5">Panel de control</p>
           </div>
         </div>
