@@ -12,7 +12,7 @@ import { DocumentUploader } from '../components/DocumentUploader';
 
 const TIPOS_DOCUMENTOS = [
   { id: 1, nombre: 'Hoja de vida' },
-  { id: 2, nombre: 'Caja de compensación'' },
+  { id: 2, nombre: 'Caja de compensación' },
   { id: 3, nombre: 'Contrato laboral' },
   { id: 4, nombre: 'Certificado EPS' },
   { id: 5, nombre: 'Aportes pensión' },
