@@ -4,11 +4,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, Building2, CreditCard, Calendar,
   ToggleLeft, ToggleRight, CheckCircle2, AlertCircle,
-  FileText, User,
+  FileText, User, Pencil,
 } from 'lucide-react';
 import { getTrabajadores, getEmpresas, getDocumentosTrabajador, updateEstado } from '../api';
 import type { Trabajador, Empresa, Documento } from '../types';
 import { DocumentUploader } from '../components/DocumentUploader';
+import { ModalEditarTrabajador } from '../components/ModalEditarTrabajador';
+
 
 const TIPOS_DOCUMENTOS = [
   { id: 1, nombre: 'Hoja de vida' },
@@ -36,6 +38,7 @@ export const TrabajadorDetalle = () => {
   const queryClient = useQueryClient();
   const [toggleMsg, setToggleMsg] = useState('');
   const [localEstado, setLocalEstado] = useState<string | null>(null);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const { data: trabajadores = [], isLoading: loadingTrab } = useQuery({
     queryKey: ['trabajadores'],
@@ -104,6 +107,13 @@ export const TrabajadorDetalle = () => {
 
   return (
     <div className="p-8 max-w-5xl mx-auto">
+      {showEditModal && trabajador && (
+        <ModalEditarTrabajador
+          trabajador={trabajador}
+          onClose={() => setShowEditModal(false)}
+        />
+      )}
+
       <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-slate-500 hover:text-blue-600 text-sm font-medium mb-6 transition-colors">
         <ArrowLeft size={16} /> Volver
       </button>
@@ -136,8 +146,14 @@ export const TrabajadorDetalle = () => {
                 </div>
               </div>
 
-              {/* Toggle estado */}
+              {/* Botón editar + Toggle estado */}
               <div className="flex flex-col items-start sm:items-end gap-2">
+                <button
+                  onClick={() => setShowEditModal(true)}
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm bg-slate-50 text-slate-700 border border-slate-200 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-all"
+                >
+                  <Pencil size={15} /> Editar
+                </button>
                 <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Estado</p>
                 <button
                   onClick={handleToggleEstado}
