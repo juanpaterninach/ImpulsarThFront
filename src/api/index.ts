@@ -76,3 +76,11 @@ export const uploadDocumento = (
     return { data };
   });
 };
+
+export const updateTrabajador = (id: number, data: {
+  nombre: string;
+  cedula: string;
+  estado: string;
+  empresa_id: number;
+  fecha_creacion: string;
+}) => api.patch(`/trabajadores/${id}/actualizar`, data);
